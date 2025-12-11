@@ -7,3 +7,4 @@ if __name__ == "__main__":
         time.sleep(1)
         print(f'XXX{i}XXX')
     print('Punramon')
+    print('Ratchakom')
