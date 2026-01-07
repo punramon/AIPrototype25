@@ -23,17 +23,24 @@ def web_service_API_GET():
     
     return f'{msg} from {name} received!'
 
-@app.route('/request',methods=['POST']) 
-def web_service_API_POST():
+@app.route('/request_POSTGET',methods=['POST','GET']) 
+def web_service_API_POST_GET():
 
-    payload = request.data.decode("utf-8") #ดึง data
-    inmessage = json.loads(payload) # ทำ json
-
-    print(inmessage)
+    if request.method == 'GET':
+        msg = request.args.get('msg')
+        name = request.args.get('name')
+        print(f'the input message from GET is {msg} from {name}.')
+        return f'{msg} from {name} received!'
+   
+    elif request.method == 'POST':
+        payload = request.data.decode("utf-8")
+        inmessage = json.loads(payload) # ทำ json
+        print(inmessage)
+        json_data = json.dumps({'y': 'POST received!'}) # ส่งกลับไปว่าได้รับเเล้ววว
+        return json_data
     
-    
-    json_data = json.dumps({'y': 'received!'}) # ส่งกลับไปว่าได้รับเเล้ว
-    return json_data
+    else:
+        return "Only GET and POST methods are supported."
 
 if __name__ == "__main__":   # run code 
     app.run(host='localhost',debug=True,port=5001)#host='0.0.0.0' = run on internet ,port=5001 (port บน server เหมือนประตู) / localhost รันบนเครื่องเรายังไม่ใช่ internet
