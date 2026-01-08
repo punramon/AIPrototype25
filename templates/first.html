@@ -46,11 +46,22 @@
             <h2 id="prediction-text">...</h2>
             
             <div class="image-container">
-                <img id="flower-image" src="" alt="Flower Prediction" style="display: none;">
+                <img id="flower-image" src="" alt="Flower Prediction" style="display: none;" title="Click for details!">
+                <p style="font-size: 0.8rem; margin-top: 5px; color: #64748b;">(Click image for details)</p>
             </div>
         </div>
     </div>
     
+    <div id="info-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Flower Name</h2>
+            <p id="modal-desc">Description goes here...</p>
+            <a id="modal-link" href="#" target="_blank" class="wiki-btn">Read on Wikipedia</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
