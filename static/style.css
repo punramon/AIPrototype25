@@ -1,8 +1,13 @@
 :root {
-    --primary: #6366f1;
-    --secondary: #a855f7;
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary: #a78bfa;
+    --secondary: #f472b6;
+    --bg-gradient: linear-gradient(1135deg, #e0c3fc 0%, #8ec5fc 100%);
     --glass: rgba(255, 255, 255, 0.9);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* เงาสีน้ำเงินจางๆ */
+    
+    --text-color: #475569; /* สีเทาเข้ม (อ่านง่ายกว่าสีดำสนิท) */
+
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,24 +19,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--text-color); /* ใช้สีเทาเข้ม */
 }
 
 .glass-card {
     background: var(--glass);
     padding: 2.5rem;
     border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow); /* เงาแบบนุ่ม */
+    border: var(--glass-border);
+    backdrop-filter: blur(16px); /* เบลอพื้นหลังมากขึ้น */
+    -webkit-backdrop-filter: blur(16px);
     width: 100%;
     max-width: 420px;
-    backdrop-filter: blur(12px);
     transform: translateY(0);
     transition: transform 0.3s ease;
 }
-
 .glass-card:hover { transform: translateY(-5px); }
 
 .header { text-align: center; margin-bottom: 2rem; }
-h1 { color: #1e293b; font-weight: 700; margin-bottom: 0.5rem; }
+h1 { color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
 p { color: #64748b; font-size: 0.9rem; }
 
 .input-grid {
@@ -104,3 +111,34 @@ button:hover { opacity: 0.9; }
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+.image-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#flower-image {
+    max-width: 180px;        /* กำหนดขนาดรูปไม่ให้ใหญ่เกิน */
+    width: 100%;             /* ยืดหดตามมือถือได้ */
+    border-radius: 16px;     /* ทำมุมมน */
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25); /* เงาสีม่วงอ่อนๆ สวยๆ */
+    border: 4px solid white; /* ขอบขาวตัดกับรูป */
+    
+    /* Animation ตอนรูปเด้งขึ้นมา */
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ท่า Animation ให้รูปเด้งดึ๋ง */
+@keyframes popIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.5) translateY(20px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
