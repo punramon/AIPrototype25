@@ -46,10 +46,13 @@ script.js — การทำงานของระบบ
 #### **🖼️ ตัวอย่างหน้าเว็บ**
 ![My Image](https://drive.google.com/uc?id=1irFGWFZU4EbIuTzfhc9RHSEQpg_RSfRu)
 - display prediction answer
+
 ![My Image](https://drive.google.com/uc?id=1vGfuUsQowtN95P6LUrqpM7cM6FCVGyDU)
 - click image to read more details
+  
 ![My Image](https://drive.google.com/uc?id=1hzvcg47aspDkRHkK-oA9G4dF4MfRyRou)
-- link to wikipedia 
+- link to wikipedia
+  
 ![My Image](https://drive.google.com/uc?id=16MSairAj6HDR6l4euJIshBT4HD2JCvau)
 
 
