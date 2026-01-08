@@ -1,13 +1,11 @@
 :root {
     --primary: #a78bfa;
     --secondary: #f472b6;
-    --bg-gradient: linear-gradient(1135deg, #e0c3fc 0%, #8ec5fc 100%);
+    --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
     --glass: rgba(255, 255, 255, 0.9);
     --glass-border: 1px solid rgba(255, 255, 255, 0.7);
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* เงาสีน้ำเงินจางๆ */
-    
-    --text-color: #475569; /* สีเทาเข้ม (อ่านง่ายกว่าสีดำสนิท) */
-
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --text-color: #475569;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,22 +17,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color); /* ใช้สีเทาเข้ม */
+    color: var(--text-color);
 }
 
 .glass-card {
     background: var(--glass);
     padding: 2.5rem;
     border-radius: 24px;
-    box-shadow: var(--shadow); /* เงาแบบนุ่ม */
+    box-shadow: var(--shadow);
     border: var(--glass-border);
-    backdrop-filter: blur(16px); /* เบลอพื้นหลังมากขึ้น */
+    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     width: 100%;
     max-width: 420px;
     transform: translateY(0);
     transition: transform 0.3s ease;
 }
+
 .glass-card:hover { transform: translateY(-5px); }
 
 .header { text-align: center; margin-bottom: 2rem; }
@@ -82,7 +81,7 @@ button {
 
 button:hover { opacity: 0.9; }
 
-/* Result Box */
+/* --- Result Box --- */
 .result {
     margin-top: 1.5rem;
     padding: 1rem;
@@ -90,11 +89,12 @@ button:hover { opacity: 0.9; }
     border-radius: 12px;
     text-align: center;
     border: 2px solid #bfdbfe;
-    opacity: 1;
-    transition: all 0.3s ease;
+    animation: tada 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
-.result.hidden { opacity: 0; pointer-events: none; height: 0; padding: 0; margin: 0; border: none; overflow: hidden; }
+.result.hidden { 
+    display: none; 
+}
 
 .result h2 { color: var(--primary); font-size: 1.5rem; }
 .result .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b; }
@@ -112,33 +112,131 @@ button:hover { opacity: 0.9; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Image Container */
 .image-container {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-direction: column; /* จัดให้ข้อความ (click for detail) อยู่ใต้รูป */
 }
 
 #flower-image {
-    max-width: 180px;        /* กำหนดขนาดรูปไม่ให้ใหญ่เกิน */
-    width: 100%;             /* ยืดหดตามมือถือได้ */
-    border-radius: 16px;     /* ทำมุมมน */
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25); /* เงาสีม่วงอ่อนๆ สวยๆ */
-    border: 4px solid white; /* ขอบขาวตัดกับรูป */
-    
-    /* Animation ตอนรูปเด้งขึ้นมา */
+    max-width: 180px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+    border: 4px solid white;
     animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* เพิ่ม: เปลี่ยนเมาส์เป็นรูปมือ และขยายเมื่อเอาเมาส์ชี้ */
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-/* ท่า Animation ให้รูปเด้งดึ๋ง */
+#flower-image:hover {
+    transform: scale(1.05); /* ขยายรูปนิดนึงตอนชี้ */
+}
+
+/* --- Keyframes Animations --- */
 @keyframes popIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.5) translateY(20px); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
+    0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes tada {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   🆕 NEW SECTION: MODAL (POPUP) STYLES
+   ========================================= */
+
+/* ฉากหลังสีดำจางๆ */
+.modal {
+    display: none; /* ซ่อนไว้ก่อน */
+    position: fixed;
+    z-index: 1000; /* อยู่ชั้นบนสุด */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* สีดำโปร่งแสง */
+    backdrop-filter: blur(5px); /* เบลอฉากหลัง */
+    justify-content: center; /* จัดกึ่งกลางแนวนอน */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    animation: fadeIn 0.3s;
+}
+
+/* กล่อง Popup สีขาว */
+.modal-content {
+    text-align: center;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.95); /* ขาวเกือบทึบ */
+    border-radius: 24px;
+    border: 2px solid white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* ปุ่มปิด (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #94a3b8;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--secondary); /* เปลี่ยนเป็นสีชมพูเมื่อชี้ */
+}
+
+/* หัวข้อใน Popup */
+#modal-title {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+/* เนื้อหาใน Popup */
+#modal-desc {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ปุ่ม Read on Wikipedia */
+.wiki-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wiki-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
+    background: var(--secondary); /* เปลี่ยนสีไล่เฉดเมื่อชี้ */
+}
+
+/* Animation ตอน Popup โผล่ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
