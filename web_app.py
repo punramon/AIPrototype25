@@ -11,6 +11,22 @@ with open('iris_model.pkl', 'rb') as f:
 
 class_names = ['Setosa', 'Versicolor', 'Virginica']
 
+# --- NEW: Flower Descriptions & Links ---
+flower_info = {
+    'Setosa': {
+        'desc': 'Iris setosa is known for its small, purple-blue flowers. It is found in the Arctic sea coasts and is very hardy in cold climates.',
+        'url': 'https://en.wikipedia.org/wiki/Iris_setosa'
+    },
+    'Versicolor': {
+        'desc': 'Iris versicolor is also known as the "Blue Flag". It is a common wildflower in North America and often grows in marshes and wet meadows.',
+        'url': 'https://en.wikipedia.org/wiki/Iris_versicolor'
+    },
+    'Virginica': {
+        'desc': 'Iris virginica, or the "Virginia Iris", is a perennial flowering plant. It typically has violet-blue flowers and thrives in wet soils.',
+        'url': 'https://en.wikipedia.org/wiki/Iris_virginica'
+    }
+}
+
 # --- HTML TEMPLATE STORED AS A STRING ---
 # HTML_TEMPLATE = """
 # <!DOCTYPE html>
@@ -69,21 +85,21 @@ def predict():
         features = np.array([vals])
 
         # Predict
-        prediction = model.predict(features)
-        result_name = class_names[prediction[0]]
+        prediction_idx = model.predict(features)[0]
+        result_name = class_names[prediction_idx]
         
-        # --- NEW LOGIC FOR JSON IMAGE ---
-        # 1. Create the filename (e.g., 'images/setosa.jpg')
+        # Get Image & Info
         filename = f"images/{result_name.lower()}.jpg"
+        full_image_url = url_for('static', filename=filename)
         
-        # 2. Generate the full URL using Flask's url_for
-        # This creates: "/static/images/setosa.jpg"
-        image_url = url_for('static', filename=filename)
+        # --- NEW: Get description and link ---
+        info = flower_info[result_name]
 
-        # 3. Send the URL back in the JSON
         return jsonify({
             'prediction': result_name, 
-            'image_url': image_url, 
+            'image_url': full_image_url,
+            'description': info['desc'], # Send description
+            'link': info['url'],         # Send Wikipedia link
             'status': 'success'
         })
     
