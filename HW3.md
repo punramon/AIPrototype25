@@ -41,7 +41,7 @@ script.js — การทำงานของระบบ
 ![My Image](https://drive.google.com/uc?id=1jr3M-lIIuMMnXS8Ih0NL9NdLHZtYmwYz)
 
 ### ทำให้หน้าเว็บของเราดูดีขึ้นด้วย CSS และ JavaScript
-**CSS Code :** **[`stlye.css`](https://github.com/punramon/AIPrototype25/blob/main/static/style.css)**<br>
+**CSS Code :** **[`style.css`](https://github.com/punramon/AIPrototype25/blob/main/static/style.css)**<br>
 **javascript Code :** **[`script.js`](https://github.com/punramon/AIPrototype25/blob/main/static/script.js)**<br>
 #### **🖼️ ตัวอย่างหน้าเว็บ**
 ![My Image](https://drive.google.com/uc?id=1irFGWFZU4EbIuTzfhc9RHSEQpg_RSfRu)
