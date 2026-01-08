@@ -1,6 +1,6 @@
 import numpy as np
 import pickle
-from flask import Flask, request, render_template_string, render_template, jsonify
+from flask import Flask, request, render_template_string, render_template, jsonify, url_for
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -64,19 +64,28 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get data from JSON request
         data = request.get_json()
-        
-        # Convert to float
         vals = [float(data[k]) for k in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]
         features = np.array([vals])
 
         # Predict
         prediction = model.predict(features)
         result_name = class_names[prediction[0]]
+        
+        # --- NEW LOGIC FOR JSON IMAGE ---
+        # 1. Create the filename (e.g., 'images/setosa.jpg')
+        filename = f"images/{result_name.lower()}.jpg"
+        
+        # 2. Generate the full URL using Flask's url_for
+        # This creates: "/static/images/setosa.jpg"
+        image_url = url_for('static', filename=filename)
 
-        # Return JSON response
-        return jsonify({'prediction': result_name, 'status': 'success'})
+        # 3. Send the URL back in the JSON
+        return jsonify({
+            'prediction': result_name, 
+            'image_url': image_url, 
+            'status': 'success'
+        })
     
     except Exception as e:
         return jsonify({'error': str(e), 'status': 'error'})
