@@ -2,7 +2,7 @@
 HW3/
 │
 ├── web_app.py
-├── iris_model.pkl
+├── train.py
 ├── templates/
 │   └── frist.html
 └── static/
