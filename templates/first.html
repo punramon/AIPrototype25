@@ -11,7 +11,7 @@
 
     <div class="glass-card">
         <div class="header">
-            <h1>🌸 Iris AI</h1>
+            <h1>🌸 Iris Classification</h1>
             <p>Smart Flower Classification</p>
         </div>
 
@@ -44,9 +44,13 @@
         <div id="result-area" class="result hidden">
             <span class="label">Prediction:</span>
             <h2 id="prediction-text">...</h2>
+            
+            <div class="image-container">
+                <img id="flower-image" src="" alt="Flower Prediction" style="display: none;">
+            </div>
         </div>
     </div>
-
+    
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
