@@ -34,15 +34,15 @@ Concepts of AI/ML system implementation and prototyping: Cloud computing, Virtua
 | **2** | 03/12/68 | Cloud Virtual machines | [`Lecture Class 2.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20class%202.md) | [`vdo class 2`](https://www.youtube.com/watch?v=QVp50ceSZG8&list=PLznIrqpIHhMljOPC5D2YPyOfgW28YSklI&index=3)
 | **3** | 04/12/68 | Install Miniconda and Session | [`Lecture Class 3.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20Class%203.md) | [`vdo class 3`](https://www.youtube.com/watch?v=3VeOLNDYLXY&list=PLznIrqpIHhMljOPC5D2YPyOfgW28YSklI&index=4)
 | **4** | 11/12/68 | Environment Conda & GitHub CLI | [`Lecture Class 4.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20Class%204.md) | [`vdo class 4`](https://www.youtube.com/watch?v=gO4l4b2Tngg&list=PLznIrqpIHhMljOPC5D2YPyOfgW28YSklI&index=5)
-| **5** | 25/01/69 | Git Fork and HTTP Methods| [`Lecture Class 5.md`](https://github.com/punramon/AIPrototype25/blob/main/lecture%20Class%205.md) | [`vdo class 5`](https://youtu.be/g2D0SQB4KuU)
-| **6** | --/--/-- | -- | [`Lecture Class 6.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20Class%206.md) | [`vdo class 6`](https://youtu.be/wCXppSUf5Tg )
+| **5** | 25/12/68 | Git Fork and HTTP Methods| [`Lecture Class 5.md`](https://github.com/punramon/AIPrototype25/blob/main/lecture%20Class%205.md) | [`vdo class 5`](https://youtu.be/g2D0SQB4KuU)
+| **6** | 07/01/69 | Web service | [`Lecture Class 6.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20Class%206.md) | [`vdo class 6`](https://youtu.be/wCXppSUf5Tg )
 
 ---
 
 ### 🔗 Project Resources
 | Category | Link |
 | :--------:| :---: |
-| 🌐 **Project Webpage** | [View Project Webpage](--) |
+| 🌐 **Project Webpage** | [View Project Webpage](https://punramon.github.io/Glumii/) |
 | 🚀 **Project Web App** | [View Project Web Application](--) |
 
 ---
