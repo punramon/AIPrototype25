@@ -37,6 +37,7 @@ Concepts of AI/ML system implementation and prototyping: Cloud computing, Virtua
 | **5** | 25/12/68 | Git Fork and HTTP Methods| [`Lecture Class 5.md`](https://github.com/punramon/AIPrototype25/blob/main/lecture%20Class%205.md) | [`vdo class 5`](https://youtu.be/g2D0SQB4KuU)
 | **6** | 07/01/69 | Web service | [`Lecture Class 6.md`](https://github.com/punramon/AIPrototype25/blob/main/Lecture%20Class%206.md) | [`vdo class 6`](https://youtu.be/wCXppSUf5Tg )
 | **7** | 14/01/69 | Run Web App on VM | [`Lecture Class 7.md`](--) | [`vdo class 7`](https://youtu.be/RYlV4tIJvK4 )
+| **8** | 15/01/69 | Basic AI & Train LLM | [`Lecture Class 8.md`](--) | [`vdo class 8`](https://youtu.be/jDXmpCjSyIE )
 
 ---
 
