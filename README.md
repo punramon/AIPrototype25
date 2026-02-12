@@ -45,7 +45,7 @@ Concepts of AI/ML system implementation and prototyping: Cloud computing, Virtua
 | Category | Link |
 | :--------:| :---: |
 | 🌐 **Project Webpage** | [View Project Webpage](https://punramon.github.io/Glumii/) |
-| 🚀 **Project Web App** | [View Project Web Application](--) |
+| 🚀 **Project Web App** | [View Project Web Application](https://meaiie.github.io/Glumii_webchat/) |
 
 ---
 
@@ -60,11 +60,8 @@ Concepts of AI/ML system implementation and prototyping: Cloud computing, Virtua
 
 ### 🔍 Research Task (Semester 2)
 1. -- ออกแบบ workflow สำหรับ web app
-2. --
-3. --
-4. --
-5. --
-6. --
+2. -- ประเมินผล Passive and active conversational agents
+3. -- แก้ไขรูปเล่ม Project
 
 ---
 
