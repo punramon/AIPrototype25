@@ -22,7 +22,7 @@ Concepts of AI/ML system implementation and prototyping: Cloud computing, Virtua
 
 ### ⏰ Timeline & Milestones
 - 🟢 **Course Start:** 26/11/2025  
-- 🔴 **Final Presentation:** --/--/2026  
+- 🔴 **Final Presentation:** 11/03/2026  
 
 ---
 
